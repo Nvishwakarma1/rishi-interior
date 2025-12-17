@@ -1,0 +1,148 @@
+.portfolio-section {
+    background: var(--bg-secondary);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 14px 36px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 40px;
+}
+
+.portfolio-card {
+    background: var(--bg-color);
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--bg-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-gold));
+    letter-spacing: 1px;
+}
+
+.placeholder-image[data-type="living"] {
+    background: linear-gradient(135deg, #2C5F5D, #3A7D7A);
+}
+
+.placeholder-image[data-type="kitchen"] {
+    background: linear-gradient(135deg, #C9A961, #D4B76E);
+}
+
+.placeholder-image[data-type="office"] {
+    background: linear-gradient(135deg, #4A4A4A, #6B6B6B);
+}
+
+.placeholder-image[data-type="retail"] {
+    background: linear-gradient(135deg, #5D4E3C, #7A6549);
+}
+
+.placeholder-image[data-type="bedroom"] {
+    background: linear-gradient(135deg, #8B7B6A, #A69584);
+}
+
+.placeholder-image[data-type="restaurant"] {
+    background: linear-gradient(135deg, #3C4F4E, #527170);
+}
+
+.portfolio-info {
+    padding: 28px;
+    background: var(--bg-color);
+}
+
+.portfolio-info h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.category-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .portfolio-filters {
+        margin-bottom: 60px;
+    }
+
+    .portfolio-image {
+        height: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-btn {
+        padding: 12px 28px;
+        font-size: 12px;
+    }
+
+    .portfolio-info {
+        padding: 24px;
+    }
+}

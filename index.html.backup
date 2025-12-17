@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isometric CAD Background</title>
+    <style>
+        /* --- CSS Variables for easy tweaking --- */
+        :root {
+            --bg-color: #ffffff;       /* White background */
+            --grid-line-color: #e8e8e8; /* Subtle grey for grid lines */
+            --text-color: #333333;      /* Dark grey for text */
+            --border-color: #000000;    /* Black for title block borders */
+            font-family: 'Courier New', Courier, monospace; /* Technical-looking font */
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: var(--bg-color);
+            overflow: hidden; /* Prevents scrollbars if content doesn't exceed height */
+        }
+
+        /* --- 1. The Isometric Grid Background --- */
+        .isometric-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Sends it to the back */
+            
+            /* Creating the isometric pattern using two linear gradients 
+               angled at 30 degrees and 150 degrees.
+            */
+            background-image: 
+                linear-gradient(30deg, var(--grid-line-color) 1px, transparent 1px),
+                linear-gradient(150deg, var(--grid-line-color) 1px, transparent 1px);
+            
+            /* IMPORTANT: The background size determines the grid density.
+               For a perfect isometric aspect ratio, Height = Width * tan(30deg).
+               tan(30deg) is approx 0.577.
+               If width is 50px, height should be approx 28.85px.
+            */
+            background-size: 50px 28.85px; 
+            background-position: center;
+        }
+
+
+        /* --- 2. Fixed Position Elements --- */
+        
+        /* Common styles for fixed text */
+        .fixed-label {
+            position: fixed;
+            color: var(--text-color);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* Bottom Left: Area Label */
+        .area-label {
+            bottom: 30px;
+            left: 30px;
+            font-size: 16px;
+        }
+
+        /* Bottom Right: Title Block Container */
+        .title-block {
+            bottom: 30px;
+            right: 30px;
+            border: 2px solid var(--border-color);
+            background: var(--bg-color); /* Ensures grid doesn't show through */
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Title Block Internal Structure */
+        .project-info {
+            padding: 10px 15px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .dwg-number {
+            border-top: 2px solid var(--border-color);
+            padding: 5px 15px;
+            text-align: right;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="isometric-grid"></div>
+
+    <div class="fixed-label area-label">
+        AREA: 120 SQ M
+    </div>
+
+    <div class="fixed-label title-block">
+        <div class="project-info">
+            PROJECT: APARTMENT INTERIOR<br>
+            ISOMETRIC VIEW - DWG NO.
+        </div>
+        <div class="dwg-number">
+            A-101
+        </div>
+    </div>
+
+</body>
+</html>

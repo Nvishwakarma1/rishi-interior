@@ -1,0 +1,25 @@
+.app-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg-color);
+}
+
+/* Section spacing - more generous for minimalist look */
+section {
+    padding: 120px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 80px 6%;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 60px 5%;
+    }
+}
